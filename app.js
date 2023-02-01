@@ -13,10 +13,39 @@ new Vue({
 			email: "contact-amiens@lamanu.fr",
 		},
 		isShow: false,
+		listCampus: ["Amiens", "Le Havre", "Compiègne", "Versailles"],
+		listHobbies: ["HTML/CSS", "JS", "JQuery", "Vue.js", "UX/UI", "PAO"],
+		firstname: "",
+		lastname: "",
+		email: "",
+		civility: "",
+		campus: "",
+		hobbies: [],
+		messageContact: "",
+		rgpd: "",
 	},
 	methods: {
 		toggleCoord: function () {
 			this.isShow = !this.isShow;
+		},
+		sendForm: function () {
+			console.log(
+				this.firstname,
+				" ",
+				this.lastname,
+				" ",
+				this.email,
+				" ",
+				this.civility,
+				" ",
+				this.campus,
+				" ",
+				this.hobbies,
+				" ",
+				this.messageContact,
+				" ",
+				this.rgpd
+			);
 		},
 	},
 });

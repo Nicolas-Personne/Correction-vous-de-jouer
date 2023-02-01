@@ -38,6 +38,134 @@
 					</div>
 				</div>
 			</div>
+			<form
+				class="form-group row justify-content-center"
+				@submit.prevent="sendForm()">
+				<div class="col-md-5">
+					<label for="lastname">Nom :</label>
+					<input
+						class="form-control"
+						type="text"
+						name="lastname"
+						id="lastname"
+						v-model="lastname" />
+					<label for="firstname">Prénom :</label>
+					<input
+						class="form-control"
+						type="text"
+						name="firstname"
+						id="firstname"
+						v-model="firstname" />
+					<label for="email">Email :</label>
+					<input
+						class="form-control"
+						type="email"
+						name="email"
+						id="email"
+						v-model="email" />
+				</div>
+				<div class="col-md-5 form-group">
+					<div>
+						<p for="civility">Civilité :</p>
+						<div class="form-check">
+							<input
+								v-model="civility"
+								type="radio"
+								class="form-check-input"
+								name="civility"
+								id="mr"
+								value="mr"
+								checked />
+							<label for="mr" class="form-check-label">M.</label>
+						</div>
+						<div class="form-check">
+							<input
+								v-model="civility"
+								type="radio"
+								class="form-check-input"
+								name="civility"
+								id="mrs"
+								value="mrs" />
+							<label for="mrs" class="form-check-label"
+								>Mme.</label
+							>
+						</div>
+					</div>
+					<label for="campus">Campus :</label>
+					<select
+						name="campus"
+						id="campus"
+						class="form-control"
+						v-model="campus">
+						<option selected disabled value="">
+							--- Choisissez un campus ---
+						</option>
+						<option v-for="item in listCampus" :value="item">
+							{{item}}
+						</option>
+					</select>
+				</div>
+				<div class="col-md-5">
+					<p>Centres d'intérêts :</p>
+					<div class="form-check">
+						<div v-for="item in listHobbies">
+							<input
+								v-model="hobbies"
+								class="form-check-input"
+								type="checkbox"
+								name="hobbies"
+								:id="item"
+								:value="item" />
+							<label :for="item">{{item}}</label>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-5">
+					<label for="contactMessage">Message :</label>
+					<textarea
+						v-model="messageContact"
+						name="contactMessage"
+						id="contactMessage"
+						cols="30"
+						rows="5"
+						class="form-control"></textarea>
+				</div>
+				<div class="col-md-10">
+					<div class="form-check">
+						<input
+							v-model="rgpd"
+							class="form-check-input"
+							type="checkbox"
+							name="rgpd"
+							id="rgpd"
+							value="true" />
+						<label for="rgpd"
+							>Acceptation de la politique de
+							confidentialité*</label
+						>
+					</div>
+				</div>
+				<div class="col-md-6 text-center">
+					<button type="submit" class="btn btn-success">
+						Envoyer
+					</button>
+				</div>
+			</form>
+			<h3>Résultat :</h3>
+			<div class="row">
+				<div class="col-md-5">
+					<p>Nom : {{lastname}}</p>
+					<p>Prénom : {{firstname}}</p>
+					<p>Mail : {{email}}</p>
+					<p>Centres d'intérêts : {{hobbies}}</p>
+				</div>
+				<div class="col-md-5">
+					<p>Civilité : {{civility}}</p>
+					<p>Campus : {{campus}}</p>
+					<p>Message : {{messageContact}}</p>
+					<p>RGPD : {{rgpd}}</p>
+				</div>
+			</div>
 		</main>
 	</body>
 </html>
