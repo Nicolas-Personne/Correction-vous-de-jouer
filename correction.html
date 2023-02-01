@@ -23,8 +23,14 @@
 					<img
 						class="img-fluid"
 						src="https://lamanu.fr/wp-content/uploads/2022/06/la-manu-ecole-superieure-metiers-numerique-logo.jpg"
-						:alt="alternative"
+						v-bind:alt="alternative"
 						:title="laManu" />
+				</div>
+				<div>
+					<p>Coordonnées:</p>
+					<ul v-for="(value, name) in campusAM">
+						<li>{{name}}: {{value}}</li>
+					</ul>
 				</div>
 			</div>
 		</main>
