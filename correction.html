@@ -26,11 +26,16 @@
 						v-bind:alt="alternative"
 						:title="laManu" />
 				</div>
-				<div>
-					<p>Coordonnées:</p>
-					<ul v-for="(value, name) in campusAM">
-						<li>{{name}}: {{value}}</li>
-					</ul>
+				<div class="col-md-5">
+					<button class="btn btn-primary" @click="toggleCoord">
+						{{btnMessage}}
+					</button>
+					<div v-if="isShow">
+						<p>Coordonnées:</p>
+						<ul v-for="(value, name) in campusAM">
+							<li>{{name}}: {{value}}</li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</main>
